@@ -2,17 +2,18 @@
 База - telega.in
 
 Структура: 
-{
-  categoryID: {
+[
+  {
+    categoryID,
     title,
     keywords,
-    channels: [
+    groups: [
       {
         id,
         financial, - данные с telega.in
         stat, - данные с tgstat.ru
 	CALCULATED: {
-          totalIncome, - минимально заработано на канале
+          totalIncome, - минимально заработано на канале или чате
           monthIncome, - средний минимальный заработок в месяц
           incomePerMember, - минимально заработано с одного подписчика
           minAdsPrice, - минимальная стоимость рекламного поста
@@ -64,6 +65,6 @@
       }      
     }
   }
-}
+]
 
 
