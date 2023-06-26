@@ -316,13 +316,13 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_100_Count',
+        outcomeName: 'PSDP_100_Count',
         propertyName: 'members',
         conditions: [{ type: '<', value: 100 }],
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_100_500_Count',
+        outcomeName: 'PSDP_100_500_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 100 },
@@ -331,7 +331,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_500_1k_Count',
+        outcomeName: 'PSDP_500_1k_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 500 },
@@ -340,7 +340,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_1k_10k_Count',
+        outcomeName: 'PSDP_1k_10k_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 1000 },
@@ -349,7 +349,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_10k_50k_Count',
+        outcomeName: 'PSDP_10k_50k_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 10000 },
@@ -358,7 +358,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_50k_100k_Count',
+        outcomeName: 'PSDP_50k_100k_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 50000 },
@@ -367,7 +367,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_100k_500k_Count',
+        outcomeName: 'PSDP_100k_500k_Count',
         propertyName: 'members',
         conditions: [
           { type: '>=', value: 100000 },
@@ -376,7 +376,7 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       },
       {
         type: 'counter',
-        outcomeName: 'MDP_500k_Count',
+        outcomeName: 'PSDP_500k_Count',
         propertyName: 'members',
         conditions: [{ type: '>=', value: 500000 }],
       },
@@ -589,43 +589,43 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
     statData.groupsCount,
     1
   );
-  newStatistic.MDP_100 = percent(
-    profitableStat.MDP_100_Count,
+  newStatistic.PSDP_100 = percent(
+    profitableStat.PSDP_100_Count,
     statData.SDP_100_Count,
     1
   );
-  newStatistic.MDP_100_500 = percent(
-    profitableStat.MDP_100_500_Count,
+  newStatistic.PSDP_100_500 = percent(
+    profitableStat.PSDP_100_500_Count,
     statData.SDP_100_500_Count,
     1
   );
-  newStatistic.MDP_500_1k = percent(
-    profitableStat.MDP_500_1k_Count,
+  newStatistic.PSDP_500_1k = percent(
+    profitableStat.PSDP_500_1k_Count,
     statData.SDP_500_1k_Count,
     1
   );
-  newStatistic.MDP_1k_10k = percent(
-    profitableStat.MDP_1k_10k_Count,
+  newStatistic.PSDP_1k_10k = percent(
+    profitableStat.PSDP_1k_10k_Count,
     statData.SDP_1k_10k_Count,
     1
   );
-  newStatistic.MDP_10k_50k = percent(
-    profitableStat.MDP_10k_50k_Count,
+  newStatistic.PSDP_10k_50k = percent(
+    profitableStat.PSDP_10k_50k_Count,
     statData.SDP_10k_50k_Count,
     1
   );
-  newStatistic.MDP_50k_100k = percent(
-    profitableStat.MDP_50k_100k_Count,
+  newStatistic.PSDP_50k_100k = percent(
+    profitableStat.PSDP_50k_100k_Count,
     statData.SDP_50k_100k_Count,
     1
   );
-  newStatistic.MDP_100k_500k = percent(
-    profitableStat.MDP_100k_500k_Count,
+  newStatistic.PSDP_100k_500k = percent(
+    profitableStat.PSDP_100k_500k_Count,
     statData.SDP_100k_500k_Count,
     1
   );
-  newStatistic.MDP_500k = percent(
-    profitableStat.MDP_500k_Count,
+  newStatistic.PSDP_500k = percent(
+    profitableStat.PSDP_500k_Count,
     statData.SDP_500k_Count,
     1
   );
