@@ -4,7 +4,9 @@ export function arrangeData(data, description) {
 
   // Основные свойства
   props.forEach((prop) => {
-    arranged[prop] = data[prop];
+    if (prop in data) {
+      arranged[prop] = data[prop];
+    }
   });
   // Неуказанные свойства
   Object.keys(data)
