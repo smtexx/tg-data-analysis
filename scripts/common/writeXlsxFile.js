@@ -25,17 +25,23 @@ export async function writeXlsxFile(newFilePath, sheetsConfig) {
     });
 
     // Set correct columns width
-    const colWidths = config.flatData.reduce(
-      (maxWidths, rowData) => {
-        Object.values(rowData).forEach((cell, idx) => {
-          if (maxWidths[idx] < cell.length) {
-            maxWidths[idx] = cell.length;
-          }
-        });
+    // const colWidths = config.flatData
+    //   .reduce(
+    //     (maxWidths, rowData) => {
+    //       Object.values(rowData).forEach((cell, idx) => {
+    //         if (maxWidths[idx] < cell.length) {
+    //           maxWidths[idx] = cell.length;
+    //         }
+    //       });
 
-        return maxWidths;
-      },
-      config.headers.map((header) => header.length)
+    //       return maxWidths;
+    //     },
+    //     config.headers.map((header) => header.length)
+    //   )
+    //   .map((width) => (width > 40 ? 40 : width));
+
+    const colWidths = config.headers.map((header) =>
+      header.length > 40 ? 40 : header.length
     );
 
     // Set col widths

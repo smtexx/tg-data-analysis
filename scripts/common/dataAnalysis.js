@@ -1,8 +1,24 @@
-export function percent(val, base) {
-  return Math.round(((val * 100) / base) * 10) / 10;
+export function percent(val, base, digits) {
+  if (base === 0) {
+    return 0;
+  }
+  const result = Math.round(((val * 100) / base) * 10) / 10;
+  return digits === undefined ? result : roundTo(result, digits);
+}
+
+export function divide(divisible, divider, digits) {
+  if (divider === 0) {
+    return 0;
+  }
+
+  const result = divisible / divider;
+  return digits === undefined ? result : roundTo(result, digits);
 }
 
 export function roundTo(val, digits) {
+  if (val === 0) {
+    return 0;
+  }
   const factor = 10 ** digits;
   return Math.round(val * factor) / factor;
 }
@@ -17,7 +33,7 @@ export function roundTo(val, digits) {
     {
       type: 'counter',
       outcomeName: 'smallChannels',
-      propName: 'income',
+      propertyName: 'income',
       conditions: [
         { type: '>', value: 10 },
         { type: '<=', value: 100 }
@@ -37,10 +53,10 @@ export function calculateStat(data, config) {
 
   data.forEach((dataPart) => {
     config.forEach((statPart) => {
-      const propValue = dataPart[statPart.propName];
+      const propertyValue = dataPart[statPart.propertyName];
       // В случае суммы прибавить значение
       if (statPart.type === 'sum') {
-        statDB[statPart.outcomeName] += propValue;
+        statDB[statPart.outcomeName] += propertyValue;
       }
 
       // В случае счетчика увеличить значение проанализировав условия
@@ -48,23 +64,45 @@ export function calculateStat(data, config) {
         let increase = true;
         if (statPart.conditions?.length > 0) {
           for (let condition of statPart.conditions) {
-            if (condition.type === '>' && propValue <= condition.value) {
+            if (
+              condition.type === '>' &&
+              propertyValue <= condition.value
+            ) {
               increase = false;
               break;
             }
-            if (condition.type === '<' && propValue >= condition.value) {
+            if (
+              condition.type === '<' &&
+              propertyValue >= condition.value
+            ) {
               increase = false;
               break;
             }
-            if (condition.type === '>=' && propValue < condition.value) {
+            if (
+              condition.type === '>=' &&
+              propertyValue < condition.value
+            ) {
               increase = false;
               break;
             }
-            if (condition.type === '<=' && propValue > condition.value) {
+            if (
+              condition.type === '<=' &&
+              propertyValue > condition.value
+            ) {
               increase = false;
               break;
             }
-            if (condition.type === '=' && propValue !== condition.value) {
+            if (
+              condition.type === '=' &&
+              propertyValue !== condition.value
+            ) {
+              increase = false;
+              break;
+            }
+            if (
+              condition.type === '!=' &&
+              propertyValue === condition.value
+            ) {
               increase = false;
               break;
             }
@@ -85,8 +123,15 @@ export function clearNonFinite(dataObj) {
     if (dataObj[key] === null) {
       dataObj[key] = 0;
     }
-    if (typeof dataObj[key] === 'number' && !Number.isFinite(dataObj[key])) {
+    if (
+      typeof dataObj[key] === 'number' &&
+      !Number.isFinite(dataObj[key])
+    ) {
       dataObj[key] = 0;
     }
   });
+}
+
+export function finite(value) {
+  return Number.isFinite(value) ? value : 0;
 }
