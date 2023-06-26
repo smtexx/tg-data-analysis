@@ -304,6 +304,48 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
       propertyName: 'totalIncome',
       conditions: [{ type: '>=', value: 500000 }],
     },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_0_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '<', value: 5000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_5k_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 5000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_20k_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 20000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_50k_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 50000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_100k_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 100000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_500k_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 500000 }],
+    },
+    {
+      type: 'counter',
+      outcomeName: 'ILDP_1m_Count',
+      propertyName: 'totalIncome',
+      conditions: [{ type: '>=', value: 1000000 }],
+    },
   ]);
 
   const profitableStat = calculateStat(
@@ -586,6 +628,42 @@ export function analyzeGroupCategory(categoryInitialData, groups) {
   );
   newStatistic.IDP_500k = percent(
     statData.IDP_500k_Count,
+    statData.groupsCount,
+    1
+  );
+
+  newStatistic.ILDP_0 = percent(
+    statData.ILDP_0_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_5k = percent(
+    statData.ILDP_5k_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_20k = percent(
+    statData.ILDP_20k_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_50k = percent(
+    statData.ILDP_50k_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_100k = percent(
+    statData.ILDP_100k_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_500k = percent(
+    statData.ILDP_500k_Count,
+    statData.groupsCount,
+    1
+  );
+  newStatistic.ILDP_1m = percent(
+    statData.ILDP_1m_Count,
     statData.groupsCount,
     1
   );
