@@ -47,8 +47,9 @@ export function extractParsedData(
       group_telegaIn.channelLink.includes(group.channelID)
     ) || {};
 
-  newGroup.members = finite(
-    tgStat.subscribers || group_telegaIn.subscribers
+  newGroup.members = Math.max(
+    finite(tgStat.subscribers),
+    finite(group_telegaIn.subscribers)
   );
   newGroup.malePercent = finite(tgStat.male_percent);
   newGroup.femalePercent = finite(tgStat.female_percent);

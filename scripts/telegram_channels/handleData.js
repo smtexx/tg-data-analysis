@@ -82,7 +82,7 @@ export async function handleData() {
   // Каналы
   console.log('Запись файлов xlsx');
   await writeXlsxFile(
-    path.join('data_dest', 'xlsx', 'channels_19_06_2023.xlsx'),
+    path.join('data_dest', 'xlsx', 'channels_22_06_2023.xlsx'),
     [
       {
         name: 'Категории',
@@ -118,7 +118,7 @@ export async function handleData() {
   );
   // Чаты
   await writeXlsxFile(
-    path.join('data_dest', 'xlsx', 'chats_19_06_2023.xlsx'),
+    path.join('data_dest', 'xlsx', 'chats_22_06_2023.xlsx'),
     [
       {
         name: 'Категории',
